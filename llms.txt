@@ -1,0 +1,61 @@
+# OutSystems.Extension.Bogus
+
+> An OutSystems Developer Cloud (ODC) external library for generating realistic fake/test data. Wraps the .NET Bogus library and exposes 60+ server actions for ODC applications.
+
+## What this project does
+
+This library lets OutSystems Developer Cloud (ODC) applications generate fake data — names, addresses, emails, phone numbers, credit card numbers, dates, lorem ipsum text, and more — directly within server action flows. It wraps the popular .NET Bogus library (https://github.com/bchavez/Bogus) as an ODC external library using the OutSystems.ExternalLibraries.SDK.
+
+## Key features
+
+- 60+ server actions across 10 interface groups: Person, Address, Company, Finance, Internet, Text, Commerce, Date, System, Randomizer
+- Locale support: 50+ locales (en, pt_BR, fr, de, ja, zh_CN, es, etc.)
+- Deterministic output: set seed > 0 for reproducible results; seed = 0 for random
+- Two data structures: FakePersonData (9 fields) and FakeCurrencyData (3 fields)
+- Batch generation: GenerateFakePerson returns a complete person in one call
+
+## Technical stack
+
+- Language: C# / .NET 8.0
+- Runtime target: linux-x64 (framework-dependent)
+- Core dependency: Bogus v35.6.1
+- ODC SDK: OutSystems.ExternalLibraries.SDK v1.5.0
+- Test framework: NUnit 4.4.0
+- License: BSD-2-Clause
+
+## Project structure
+
+- OutSystems.Bogus/ — Main library (10 interfaces, 10 implementations, 2 data structures, 1 helper)
+- OutSystems.Bogus.UnitTests/ — Unit tests (10 test classes, one per interface)
+- .github/workflows/ — CI (test.yml) and release (release.yml) pipelines
+
+## Interface groups and action counts
+
+- IFakePerson: 9 actions (names, email, phone, DOB, job title, full person)
+- IFakeAddress: 9 actions (address, city, country, zip, state, street, lat/long)
+- IFakeCompany: 4 actions (company name, suffix, catch phrase, BS)
+- IFakeFinance: 7 actions (credit card, CVV, IBAN, BIC, amount, currency, account)
+- IFakeInternet: 7 actions (URL, IP, IPv6, MAC, password, color, user agent)
+- IFakeText: 6 actions (word, words, sentence, paragraph, paragraphs, slug)
+- IFakeCommerce: 6 actions (product name, price, department, category, EAN-13, EAN-8)
+- IFakeDate: 5 actions (past, future, between, recent, soon)
+- IFakeSystem: 4 actions (file name, MIME type, extension, semver)
+- IFakeRandomizer: 6 actions (GUID, number, decimal, boolean, hash, alphanumeric)
+
+## Common parameters
+
+- locale (string, default "en"): Controls the language/region of generated data
+- seed (int, default 0): When > 0, produces deterministic output; when 0, random
+
+## Installation
+
+1. Download the ZIP from the GitHub Releases page
+2. Upload it as an external library in the ODC Portal (Forge > External Libraries)
+3. In ODC Studio, add public elements by searching for "Bogus" or specific action names
+
+## Links
+
+- Source: See the repository root
+- Bogus library: https://github.com/bchavez/Bogus
+- OutSystems ODC docs: https://www.outsystems.com/developer-cloud/
+- License: BSD-2-Clause (see LICENSE file)

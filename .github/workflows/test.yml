@@ -1,0 +1,53 @@
+name: CI - Run Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PROJECT_NAME: OutSystems.Bogus
+  PRODUCT_NAME: Bogus
+
+jobs:
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.PROJECT_NAME }}.UnitTests/${{ env.PROJECT_NAME }}.UnitTests.csproj
+
+    - name: Run Tests
+      run: |
+        dotnet test ${{ env.PROJECT_NAME }}.UnitTests/${{ env.PROJECT_NAME }}.UnitTests.csproj \
+        --configuration Release \
+        --no-restore \
+        --nologo \
+        --collect:"XPlat Code Coverage" \
+        --results-directory ./coverage
+
+    - name: Report Code Coverage
+      uses: irongut/CodeCoverageSummary@51cc3a756ddcd398d447c044c02cb6aa83fdae95 # v1.3.0
+      with:
+        filename: coverage/**/coverage.cobertura.xml
+        badge: true
+        fail_below_min: false
+        format: markdown
+        output: both
+
+    - name: Write Summary
+      run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY

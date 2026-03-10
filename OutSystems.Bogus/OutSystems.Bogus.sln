@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutSystems.Bogus", "OutSystems.Bogus.csproj", "{E02A3394-DCE4-4B2A-95DC-43BA01F58F8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutSystems.Bogus.UnitTests", "..\OutSystems.Bogus.UnitTests\OutSystems.Bogus.UnitTests.csproj", "{ED8B7475-FA3D-4CAC-824C-0722FC6834A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E02A3394-DCE4-4B2A-95DC-43BA01F58F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02A3394-DCE4-4B2A-95DC-43BA01F58F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02A3394-DCE4-4B2A-95DC-43BA01F58F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02A3394-DCE4-4B2A-95DC-43BA01F58F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED8B7475-FA3D-4CAC-824C-0722FC6834A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8B7475-FA3D-4CAC-824C-0722FC6834A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8B7475-FA3D-4CAC-824C-0722FC6834A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8B7475-FA3D-4CAC-824C-0722FC6834A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
