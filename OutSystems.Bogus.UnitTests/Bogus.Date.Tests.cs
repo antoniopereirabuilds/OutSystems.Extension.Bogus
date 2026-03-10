@@ -8,7 +8,7 @@ namespace OutSystems.Bogus.Tests
     [TestFixture]
     public class FakeDateTests
     {
-        private readonly FakeDate _sut = new();
+        private readonly FakeBogus _sut = new();
 
         #region FakePastDate Tests
 

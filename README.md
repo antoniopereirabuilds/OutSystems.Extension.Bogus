@@ -69,19 +69,20 @@ FakeCity(locale: "fr")         →  French city name
 ### C# usage (for developers extending the library)
 
 ```csharp
+// All 63 actions are available through a single unified class
+var fakeBogus = new FakeBogus();
+
 // Generate a fake person
-var fakePerson = new FakePerson();
-string name = fakePerson.FakeFullName(locale: "en", seed: 42);
-string email = fakePerson.FakeEmail(locale: "en", seed: 42);
+string name = fakeBogus.FakeFullName(locale: "en", seed: 42);
+string email = fakeBogus.FakeEmail(locale: "en", seed: 42);
 
 // Generate a complete person record in one call
-FakePersonData person = fakePerson.GenerateFakePerson(locale: "pt_BR", seed: 100);
+FakePersonData person = fakeBogus.GenerateFakePerson(locale: "pt_BR", seed: 100);
 // person.FirstName, person.LastName, person.Email, etc.
 
 // Generate financial data
-var fakeFinance = new FakeFinance();
-string iban = fakeFinance.FakeIban(locale: "en", seed: 42);
-decimal amount = fakeFinance.FakeAmount(min: 10, max: 500, decimals: 2);
+string iban = fakeBogus.FakeIban(locale: "en", seed: 42);
+decimal amount = fakeBogus.FakeAmount(min: 10, max: 500, decimals: 2);
 ```
 
 ## Structures
@@ -114,7 +115,9 @@ Represents a currency with name, code, and symbol.
 
 ## Actions
 
-### FakePerson (IFakePerson)
+All 63 actions are exposed through a single unified interface (`IFakeBogus` / `FakeBogus`), which maps to the **Bogus** OSInterface in ODC. Actions are organized into logical regions within the interface.
+
+### Person
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -128,7 +131,7 @@ Represents a currency with name, code, and symbol.
 | FakeJobTitle | Generates a fake job title. | locale, seed | Text |
 | GenerateFakePerson | Generates a complete fake person. | locale, seed | FakePersonData |
 
-### FakeAddress (IFakeAddress)
+### Address
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -142,7 +145,7 @@ Represents a currency with name, code, and symbol.
 | FakeLatitude | Generates a fake latitude. | seed | Decimal |
 | FakeLongitude | Generates a fake longitude. | seed | Decimal |
 
-### FakeCompany (IFakeCompany)
+### Company
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -151,7 +154,7 @@ Represents a currency with name, code, and symbol.
 | FakeCatchPhrase | Generates a catch phrase. | locale, seed | Text |
 | FakeBs | Generates a BS phrase. | locale, seed | Text |
 
-### FakeFinance (IFakeFinance)
+### Finance
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -163,7 +166,7 @@ Represents a currency with name, code, and symbol.
 | FakeCurrency | Generates a currency. | seed | FakeCurrencyData |
 | FakeAccountNumber | Generates a bank account number. | seed | Text |
 
-### FakeInternet (IFakeInternet)
+### Internet
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -175,7 +178,7 @@ Represents a currency with name, code, and symbol.
 | FakeColor | Generates a hex color. | seed | Text |
 | FakeUserAgent | Generates a user agent string. | seed | Text |
 
-### FakeText (IFakeText)
+### Text
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -186,7 +189,7 @@ Represents a currency with name, code, and symbol.
 | FakeLoremParagraphs | Generates multiple paragraphs. | count, seed | Text |
 | FakeLoremSlug | Generates a URL slug. | wordCount, seed | Text |
 
-### FakeCommerce (IFakeCommerce)
+### Commerce
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -197,7 +200,7 @@ Represents a currency with name, code, and symbol.
 | FakeEan13 | Generates an EAN-13 barcode. | seed | Text |
 | FakeEan8 | Generates an EAN-8 barcode. | seed | Text |
 
-### FakeDate (IFakeDate)
+### Date
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -207,7 +210,7 @@ Represents a currency with name, code, and symbol.
 | FakeRecentDate | Generates a recent date. | days, seed | Date Time |
 | FakeSoonDate | Generates a soon date. | days, seed | Date Time |
 
-### FakeSystem (IFakeSystem)
+### System
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|
@@ -216,7 +219,7 @@ Represents a currency with name, code, and symbol.
 | FakeFileExtension | Generates a file extension. | seed | Text |
 | FakeSemver | Generates a semantic version. | seed | Text |
 
-### FakeRandomizer (IFakeRandomizer)
+### Randomizer
 
 | Action | Description | Key Parameters | Return |
 |--------|-------------|----------------|--------|

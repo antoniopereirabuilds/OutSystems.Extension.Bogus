@@ -8,7 +8,7 @@ This library lets OutSystems Developer Cloud (ODC) applications generate fake da
 
 ## Key features
 
-- 60+ server actions across 10 interface groups: Person, Address, Company, Finance, Internet, Text, Commerce, Date, System, Randomizer
+- 63 server actions in a single unified interface (IFakeBogus / FakeBogus), organized into 10 regions: Person, Address, Company, Finance, Internet, Text, Commerce, Date, System, Randomizer
 - Locale support: 50+ locales (en, pt_BR, fr, de, ja, zh_CN, es, etc.)
 - Deterministic output: set seed > 0 for reproducible results; seed = 0 for random
 - Two data structures: FakePersonData (9 fields) and FakeCurrencyData (3 fields)
@@ -25,22 +25,26 @@ This library lets OutSystems Developer Cloud (ODC) applications generate fake da
 
 ## Project structure
 
-- OutSystems.Bogus/ — Main library (10 interfaces, 10 implementations, 2 data structures, 1 helper)
-- OutSystems.Bogus.UnitTests/ — Unit tests (10 test classes, one per interface)
+- OutSystems.Bogus/ — Main library (1 interface IFakeBogus, 1 implementation FakeBogus with 63 methods in 10 regions, 2 data structures, 1 helper)
+- OutSystems.Bogus.UnitTests/ — Unit tests (10 test classes, one per region)
 - .github/workflows/ — CI (test.yml) and release (release.yml) pipelines
 
-## Interface groups and action counts
+## Interface structure
 
-- IFakePerson: 9 actions (names, email, phone, DOB, job title, full person)
-- IFakeAddress: 9 actions (address, city, country, zip, state, street, lat/long)
-- IFakeCompany: 4 actions (company name, suffix, catch phrase, BS)
-- IFakeFinance: 7 actions (credit card, CVV, IBAN, BIC, amount, currency, account)
-- IFakeInternet: 7 actions (URL, IP, IPv6, MAC, password, color, user agent)
-- IFakeText: 6 actions (word, words, sentence, paragraph, paragraphs, slug)
-- IFakeCommerce: 6 actions (product name, price, department, category, EAN-13, EAN-8)
-- IFakeDate: 5 actions (past, future, between, recent, soon)
-- IFakeSystem: 4 actions (file name, MIME type, extension, semver)
-- IFakeRandomizer: 6 actions (GUID, number, decimal, boolean, hash, alphanumeric)
+Single unified interface: IFakeBogus (OSInterface Name = "Bogus") with 63 methods in 10 #region blocks:
+
+- Person region: 9 actions (names, email, phone, DOB, job title, full person)
+- Address region: 9 actions (address, city, country, zip, state, street, lat/long)
+- Company region: 4 actions (company name, suffix, catch phrase, BS)
+- Finance region: 7 actions (credit card, CVV, IBAN, BIC, amount, currency, account)
+- Internet region: 7 actions (URL, IP, IPv6, MAC, password, color, user agent)
+- Text region: 6 actions (word, words, sentence, paragraph, paragraphs, slug)
+- Commerce region: 6 actions (product name, price, department, category, EAN-13, EAN-8)
+- Date region: 5 actions (past, future, between, recent, soon)
+- System region: 4 actions (file name, MIME type, extension, semver)
+- Randomizer region: 6 actions (GUID, number, decimal, boolean, hash, alphanumeric)
+
+Note: ODC allows only 1 OSInterface per DLL, hence the consolidation into a single interface.
 
 ## Common parameters
 

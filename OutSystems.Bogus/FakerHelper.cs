@@ -56,5 +56,23 @@ namespace OutSystems.Bogus
                 throw new ArgumentOutOfRangeException(paramName, length, $"{paramName} must not exceed {MaxLength}.");
             return length;
         }
+
+        /// <summary>
+        /// Validates that min is not greater than max.
+        /// </summary>
+        internal static void ValidateRange(decimal min, decimal max, string minParamName = "min", string maxParamName = "max")
+        {
+            if (min > max)
+                throw new ArgumentOutOfRangeException(minParamName, min, $"{minParamName} must not be greater than {maxParamName}.");
+        }
+
+        /// <summary>
+        /// Validates that a positive integer parameter is at least 1.
+        /// </summary>
+        internal static void ValidatePositive(int value, string paramName)
+        {
+            if (value < 1)
+                throw new ArgumentOutOfRangeException(paramName, value, $"{paramName} must be at least 1.");
+        }
     }
 }

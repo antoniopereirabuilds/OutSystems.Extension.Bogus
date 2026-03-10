@@ -8,7 +8,7 @@ namespace OutSystems.Bogus.Tests
     [TestFixture]
     public class FakeTextTests
     {
-        private readonly FakeText _sut = new();
+        private readonly FakeBogus _sut = new();
 
         [Test]
         public void FakeLoremWord_ReturnsNonEmpty()

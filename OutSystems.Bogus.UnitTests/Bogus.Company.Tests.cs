@@ -8,7 +8,7 @@ namespace OutSystems.Bogus.Tests
     [TestFixture]
     public class FakeCompanyTests
     {
-        private readonly FakeCompany _sut = new();
+        private readonly FakeBogus _sut = new();
 
         [Test]
         public void FakeCompanyName_DefaultParams_ReturnsNonEmpty()

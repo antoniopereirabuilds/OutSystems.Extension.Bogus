@@ -38,22 +38,22 @@ Thank you for considering contributing to this project. This guide explains how 
 
 ```
 OutSystems.Bogus/               Main library
-  IFake*.cs                     Interface definitions (OSInterface/OSAction attributes)
-  Fake*.cs                      Implementations
+  IFakeBogus.cs                 Unified interface definition (OSInterface/OSAction attributes, 63 methods)
+  FakeBogus.cs                  Unified implementation (10 #region blocks)
   Structures.cs                 Data structures (FakePersonData, FakeCurrencyData)
   FakerHelper.cs                Shared helper (Faker factory, validation)
 OutSystems.Bogus.UnitTests/     Unit tests (NUnit)
-  Bogus.*.Tests.cs              One test class per interface group
+  Bogus.*.Tests.cs              One test class per region
 ```
 
 ## Adding a New Action
 
-1. **Define the interface method** in the appropriate `IFake*.cs` file with:
+1. **Define the interface method** in `IFakeBogus.cs` within the appropriate `#region` block, with:
    - XML doc comments (`<summary>`, `<param>`, `<returns>`, `<example>`, `<remarks>`)
    - `[OSAction]` attribute with Description and ReturnName
    - `[OSParameterAttribute]` on each parameter
 
-2. **Implement the method** in the corresponding `Fake*.cs` class using `FakerHelper.CreateFaker()`.
+2. **Implement the method** in `FakeBogus.cs` within the corresponding `#region` block, using `FakerHelper.CreateFaker()`.
 
 3. **Add unit tests** in the corresponding `Bogus.*.Tests.cs` file covering:
    - Non-empty/null output
@@ -63,12 +63,14 @@ OutSystems.Bogus.UnitTests/     Unit tests (NUnit)
 
 4. **Update the README** action table for the relevant interface group.
 
-## Adding a New Interface Group
+## Adding a New Action Region
 
-1. Create `IFakeNewGroup.cs` with the `[OSInterface]` attribute.
-2. Create `FakeNewGroup.cs` implementing the interface.
+Since ODC only allows 1 OSInterface per DLL, all actions must be added to the single `IFakeBogus` interface.
+
+1. Add a new `#region NewGroup` block in `IFakeBogus.cs` with the method signatures.
+2. Add a corresponding `#region NewGroup` block in `FakeBogus.cs` with the implementations.
 3. Create `Bogus.NewGroup.Tests.cs` with comprehensive tests.
-4. Add the new group to the README action tables.
+4. Add the new region to the README action tables.
 
 ## Code Style
 

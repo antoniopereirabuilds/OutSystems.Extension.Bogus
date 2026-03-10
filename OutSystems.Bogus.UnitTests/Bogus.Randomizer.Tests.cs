@@ -8,7 +8,7 @@ namespace OutSystems.Bogus.Tests
     [TestFixture]
     public class FakeRandomizerTests
     {
-        private readonly FakeRandomizer _sut = new();
+        private readonly FakeBogus _sut = new();
 
         #region FakeGuid Tests
 

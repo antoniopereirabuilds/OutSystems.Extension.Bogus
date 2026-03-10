@@ -8,7 +8,7 @@ namespace OutSystems.Bogus.Tests
     [TestFixture]
     public class FakeSystemTests
     {
-        private readonly FakeSystem _sut = new();
+        private readonly FakeBogus _sut = new();
 
         [Test]
         public void FakeFileName_ReturnsNameWithExtension()

@@ -9,7 +9,7 @@ namespace OutSystems.Bogus.Tests
     [TestFixture]
     public class FakeFinanceTests
     {
-        private readonly FakeFinance _sut = new();
+        private readonly FakeBogus _sut = new();
 
         #region FakeCreditCardNumber Tests
 

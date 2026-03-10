@@ -4,25 +4,28 @@ Core library for the OutSystems.Extension.Bogus project. This package wraps the 
 
 ## Overview
 
-- **10 interface groups** with 63 server actions for generating fake data.
+- **1 unified interface** (`IFakeBogus` / `FakeBogus`) with 63 server actions organized into 10 regions.
+- **OSInterface Name:** "Bogus" (ODC allows only 1 OSInterface per DLL).
 - **50+ locales** supported via the Bogus library.
 - **Deterministic output** with seed parameter for reproducible test data.
 - **2 data structures**: `FakePersonData` and `FakeCurrencyData`.
 
-## Interface Groups
+## Action Regions
 
-| Interface | Actions | Data Categories |
-|-----------|---------|-----------------|
-| IFakePerson | 9 | Names, emails, phones, DOB, job titles |
-| IFakeAddress | 9 | Addresses, cities, countries, coordinates |
-| IFakeCompany | 4 | Company names, suffixes, catch phrases |
-| IFakeFinance | 7 | Credit cards, IBANs, amounts, currencies |
-| IFakeInternet | 7 | URLs, IPs, passwords, colors, user agents |
-| IFakeText | 6 | Lorem ipsum words, sentences, paragraphs |
-| IFakeCommerce | 6 | Products, prices, categories, barcodes |
-| IFakeDate | 5 | Past, future, recent, soon, between dates |
-| IFakeSystem | 4 | File names, MIME types, extensions, semver |
-| IFakeRandomizer | 6 | GUIDs, numbers, booleans, hashes |
+All actions belong to the single `IFakeBogus` interface, organized by `#region` blocks:
+
+| Region | Actions | Data Categories |
+|--------|---------|-----------------|
+| Person | 9 | Names, emails, phones, DOB, job titles |
+| Address | 9 | Addresses, cities, countries, coordinates |
+| Company | 4 | Company names, suffixes, catch phrases |
+| Finance | 7 | Credit cards, IBANs, amounts, currencies |
+| Internet | 7 | URLs, IPs, passwords, colors, user agents |
+| Text | 6 | Lorem ipsum words, sentences, paragraphs |
+| Commerce | 6 | Products, prices, categories, barcodes |
+| Date | 5 | Past, future, recent, soon, between dates |
+| System | 4 | File names, MIME types, extensions, semver |
+| Randomizer | 6 | GUIDs, numbers, booleans, hashes |
 
 ## Dependencies
 

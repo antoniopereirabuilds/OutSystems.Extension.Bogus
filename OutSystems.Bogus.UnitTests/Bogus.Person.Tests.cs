@@ -9,7 +9,7 @@ namespace OutSystems.Bogus.Tests
     [TestFixture]
     public class FakePersonTests
     {
-        private readonly FakePerson _sut = new();
+        private readonly FakeBogus _sut = new();
 
         #region Seed Determinism Helpers
 
