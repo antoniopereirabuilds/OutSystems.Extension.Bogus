@@ -74,5 +74,64 @@ namespace OutSystems.Bogus.Tests
             var r2 = _sut.FakeUrl(seed: 42);
             Assert.That(r2, Is.EqualTo(r1));
         }
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakeUrl_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeUrl(null!, 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeUrl_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeUrl("", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeUrl_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeUrl("  ", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeUrl_SeedZero_ReturnsNonEmpty()
+        {
+            var result = _sut.FakeUrl("en", 0);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: ValidateLength for FakePassword ---
+
+        [Test]
+        public void FakePassword_LengthZero_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakePassword(0));
+        }
+
+        [Test]
+        public void FakePassword_LengthNegative_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakePassword(-1));
+        }
+
+        [Test]
+        public void FakePassword_LengthExceedsMax_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakePassword(100_001));
+        }
+
+        [Test]
+        public void FakePassword_LengthAtMinBoundary_ReturnsResult()
+        {
+            var result = _sut.FakePassword(1, "en", 42);
+            Assert.That(result, Has.Length.EqualTo(1));
+        }
     }
 }

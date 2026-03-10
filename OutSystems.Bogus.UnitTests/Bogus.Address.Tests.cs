@@ -138,5 +138,51 @@ namespace OutSystems.Bogus.Tests
         }
 
         #endregion
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakeCity_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeCity(null!, 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeCity_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeCity("", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeCity_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeCity("  ", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeCity_SeedZero_ReturnsNonEmpty()
+        {
+            var result = _sut.FakeCity("en", 0);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeLatitude_SeedZero_ReturnsValueInRange()
+        {
+            var result = _sut.FakeLatitude(0);
+            Assert.That(result, Is.InRange(-90m, 90m));
+        }
+
+        [Test]
+        public void FakeLongitude_SeedZero_ReturnsValueInRange()
+        {
+            var result = _sut.FakeLongitude(0);
+            Assert.That(result, Is.InRange(-180m, 180m));
+        }
     }
 }

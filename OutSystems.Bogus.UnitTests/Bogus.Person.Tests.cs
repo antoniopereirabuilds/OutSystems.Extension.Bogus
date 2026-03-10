@@ -217,5 +217,45 @@ namespace OutSystems.Bogus.Tests
         }
 
         #endregion
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakeFirstName_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeFirstName(null!, 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeFirstName_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeFirstName("", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeFirstName_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeFirstName("  ", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeFirstName_SeedZero_ReturnsNonEmpty()
+        {
+            var result = _sut.FakeFirstName("en", 0);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void GenerateFakePerson_SeedZero_ReturnsPopulatedPerson()
+        {
+            var result = _sut.GenerateFakePerson("en", 0);
+            Assert.That(result.FirstName, Is.Not.Null.And.Not.Empty);
+            Assert.That(result.Email, Is.Not.Null.And.Not.Empty);
+        }
     }
 }

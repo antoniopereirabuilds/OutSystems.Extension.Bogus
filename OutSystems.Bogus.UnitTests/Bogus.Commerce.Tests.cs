@@ -65,5 +65,37 @@ namespace OutSystems.Bogus.Tests
             var r2 = _sut.FakeProductName(seed: 42);
             Assert.That(r2, Is.EqualTo(r1));
         }
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakeProductName_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeProductName(null!, 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeProductName_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeProductName("", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeProductName_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeProductName("  ", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeProductName_SeedZero_ReturnsNonEmpty()
+        {
+            var result = _sut.FakeProductName("en", 0);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
     }
 }

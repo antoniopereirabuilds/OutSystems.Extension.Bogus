@@ -73,5 +73,125 @@ namespace OutSystems.Bogus.Tests
             var r2 = _sut.FakeLoremWord(seed: 42);
             Assert.That(r2, Is.EqualTo(r1));
         }
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakeLoremWord_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeLoremWord(null!, 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeLoremWord_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeLoremWord("", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeLoremWord_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeLoremWord("  ", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeLoremWord_SeedZero_ReturnsNonEmpty()
+        {
+            var result = _sut.FakeLoremWord("en", 0);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: ValidateCount boundaries ---
+
+        [Test]
+        public void FakeLoremWords_CountZero_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremWords(0));
+        }
+
+        [Test]
+        public void FakeLoremWords_CountNegative_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremWords(-1));
+        }
+
+        [Test]
+        public void FakeLoremWords_CountExceedsMax_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremWords(10_001));
+        }
+
+        [Test]
+        public void FakeLoremWords_CountAtMinBoundary_ReturnsResult()
+        {
+            var result = _sut.FakeLoremWords(1, "en", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeLoremParagraphs_CountZero_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremParagraphs(0));
+        }
+
+        [Test]
+        public void FakeLoremParagraphs_CountNegative_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremParagraphs(-1));
+        }
+
+        [Test]
+        public void FakeLoremParagraphs_CountExceedsMax_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremParagraphs(10_001));
+        }
+
+        [Test]
+        public void FakeLoremParagraphs_CountAtMinBoundary_ReturnsResult()
+        {
+            var result = _sut.FakeLoremParagraphs(1, "en", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeLoremSlug_CountZero_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremSlug(0));
+        }
+
+        [Test]
+        public void FakeLoremSlug_CountNegative_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremSlug(-1));
+        }
+
+        [Test]
+        public void FakeLoremSlug_CountExceedsMax_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremSlug(10_001));
+        }
+
+        [Test]
+        public void FakeLoremSentence_CountZero_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremSentence(0));
+        }
+
+        [Test]
+        public void FakeLoremSentence_CountNegative_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremSentence(-1));
+        }
+
+        [Test]
+        public void FakeLoremSentence_CountExceedsMax_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeLoremSentence(10_001));
+        }
     }
 }

@@ -127,5 +127,75 @@ namespace OutSystems.Bogus.Tests
         }
 
         #endregion
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeGuid_SeedZero_ReturnsValidGuid()
+        {
+            var result = _sut.FakeGuid(0);
+            Assert.That(Guid.TryParse(result, out _), Is.True);
+        }
+
+        [Test]
+        public void FakeNumber_SeedZero_ReturnsValueInRange()
+        {
+            var result = _sut.FakeNumber(0, 100, 0);
+            Assert.That(result, Is.InRange(0, 100));
+        }
+
+        // --- Branch coverage: ValidateLength for FakeHash ---
+
+        [Test]
+        public void FakeHash_LengthZero_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeHash(0));
+        }
+
+        [Test]
+        public void FakeHash_LengthNegative_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeHash(-1));
+        }
+
+        [Test]
+        public void FakeHash_LengthExceedsMax_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeHash(100_001));
+        }
+
+        [Test]
+        public void FakeHash_LengthAtMinBoundary_ReturnsResult()
+        {
+            var result = _sut.FakeHash(1, 42);
+            Assert.That(result, Has.Length.EqualTo(1));
+        }
+
+        // --- Branch coverage: ValidateLength for FakeAlphaNumeric ---
+
+        [Test]
+        public void FakeAlphaNumeric_LengthZero_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeAlphaNumeric(0));
+        }
+
+        [Test]
+        public void FakeAlphaNumeric_LengthNegative_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeAlphaNumeric(-1));
+        }
+
+        [Test]
+        public void FakeAlphaNumeric_LengthExceedsMax_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeAlphaNumeric(100_001));
+        }
+
+        [Test]
+        public void FakeAlphaNumeric_LengthAtMinBoundary_ReturnsResult()
+        {
+            var result = _sut.FakeAlphaNumeric(1, 42);
+            Assert.That(result, Has.Length.EqualTo(1));
+        }
     }
 }

@@ -45,5 +45,37 @@ namespace OutSystems.Bogus.Tests
             var r2 = _sut.FakeFileName(seed: 42);
             Assert.That(r2, Is.EqualTo(r1));
         }
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakeFileName_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeFileName(null!, 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeFileName_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeFileName("", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeFileName_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeFileName("  ", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeFileName_SeedZero_ReturnsNonEmpty()
+        {
+            var result = _sut.FakeFileName("en", 0);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
     }
 }

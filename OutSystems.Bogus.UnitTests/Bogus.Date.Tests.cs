@@ -81,5 +81,44 @@ namespace OutSystems.Bogus.Tests
         }
 
         #endregion
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakePastDate_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakePastDate(1, null!, 42);
+            Assert.That(result, Is.LessThan(DateTime.Now));
+        }
+
+        [Test]
+        public void FakePastDate_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakePastDate(1, "", 42);
+            Assert.That(result, Is.LessThan(DateTime.Now));
+        }
+
+        [Test]
+        public void FakePastDate_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakePastDate(1, "  ", 42);
+            Assert.That(result, Is.LessThan(DateTime.Now));
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakePastDate_SeedZero_ReturnsDateInPast()
+        {
+            var result = _sut.FakePastDate(1, "en", 0);
+            Assert.That(result, Is.LessThan(DateTime.Now));
+        }
+
+        [Test]
+        public void FakeFutureDate_SeedZero_ReturnsDateInFuture()
+        {
+            var result = _sut.FakeFutureDate(1, "en", 0);
+            Assert.That(result, Is.GreaterThan(DateTime.Now));
+        }
     }
 }

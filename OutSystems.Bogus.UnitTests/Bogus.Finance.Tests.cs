@@ -119,5 +119,45 @@ namespace OutSystems.Bogus.Tests
         }
 
         #endregion
+
+        // --- Branch coverage: locale fallback ---
+
+        [Test]
+        public void FakeIban_NullLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeIban(null!, 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeIban_EmptyLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeIban("", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        [Test]
+        public void FakeIban_WhitespaceLocale_FallsBackToEnglish()
+        {
+            var result = _sut.FakeIban("  ", 42);
+            Assert.That(result, Is.Not.Null.And.Not.Empty);
+        }
+
+        // --- Branch coverage: seed=0 random path ---
+
+        [Test]
+        public void FakeAmount_SeedZero_ReturnsValueInRange()
+        {
+            var result = _sut.FakeAmount(0, 1000, 2, "en", 0);
+            Assert.That(result, Is.InRange(0m, 1000m));
+        }
+
+        [Test]
+        public void FakeCurrency_SeedZero_ReturnsPopulatedCurrency()
+        {
+            var result = _sut.FakeCurrency("en", 0);
+            Assert.That(result.Name, Is.Not.Null.And.Not.Empty);
+            Assert.That(result.Code, Is.Not.Null.And.Not.Empty);
+        }
     }
 }
