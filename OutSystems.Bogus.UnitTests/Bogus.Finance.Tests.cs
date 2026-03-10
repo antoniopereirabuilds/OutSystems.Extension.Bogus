@@ -84,6 +84,24 @@ namespace OutSystems.Bogus.Tests
             Assert.That(r2, Is.EqualTo(r1));
         }
 
+        [Test]
+        public void FakeAmount_DecimalsNegative_Throws()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeAmount(0, 100, -1));
+        }
+
+        [Test]
+        public void FakeAmount_DecimalsExceedsMax_Throws()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeAmount(0, 100, 11));
+        }
+
+        [Test]
+        public void FakeAmount_MinGreaterThanMax_Throws()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => _sut.FakeAmount(100, 10));
+        }
+
         #endregion
 
         #region FakeCurrency Tests

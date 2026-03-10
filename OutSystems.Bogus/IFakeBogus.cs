@@ -17,7 +17,7 @@ namespace OutSystems.Bogus
         #region Person
 
         /// <summary>
-        /// Generates a fake first name.
+        /// Returns a random first name.
         /// </summary>
         /// <remarks>
         /// The generated name respects the specified locale. For example, locale "ja" produces Japanese names.
@@ -29,7 +29,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake first name.",
+            Description = "Returns a random first name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "FirstName"
         )]
@@ -41,7 +41,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake last name.
+        /// Returns a random last name.
         /// </summary>
         /// <remarks>
         /// The generated surname respects the specified locale.
@@ -52,7 +52,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake last name.",
+            Description = "Returns a random last name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "LastName"
         )]
@@ -64,7 +64,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake full name.
+        /// Returns a random full name (first + last).
         /// </summary>
         /// <remarks>
         /// Returns a combined first and last name. The name parts are generated together to ensure natural pairing.
@@ -75,7 +75,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake full name (first + last).",
+            Description = "Returns a random full name (first + last).",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "FullName"
         )]
@@ -110,7 +110,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake username.
+        /// Generates a fictional username.
         /// </summary>
         /// <remarks>
         /// Usernames are generated from name-like components and may include dots, underscores, or numbers.
@@ -121,7 +121,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake username.",
+            Description = "Generates a fictional username.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "UserName"
         )]
@@ -156,7 +156,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake date of birth within the specified age range.
+        /// Generates a random date of birth within the specified age range.
         /// </summary>
         /// <remarks>
         /// The date is calculated backward from today. A minAge of 18 and maxAge of 65 generates a birth date for someone currently between 18 and 65 years old.
@@ -167,7 +167,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake date of birth within the specified age range.",
+            Description = "Generates a random date of birth within the specified age range.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "DateOfBirth"
         )]
@@ -183,7 +183,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake job title.
+        /// Generates a realistic job title.
         /// </summary>
         /// <remarks>
         /// Job titles are composed of descriptor, level, and job components (e.g., "Senior Data Engineer").
@@ -194,7 +194,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake job title.",
+            Description = "Generates a realistic job title.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "JobTitle"
         )]
@@ -206,7 +206,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a complete fake person with all identity fields populated.
+        /// Generates a complete fictional person with all identity fields populated.
         /// </summary>
         /// <remarks>
         /// Returns a <see cref="FakePersonData"/> structure with FirstName, LastName, FullName, Email, Phone, DateOfBirth, UserName, JobTitle, and Gender populated in a single call. This is more efficient than calling individual actions separately when you need multiple fields for the same person.
@@ -218,7 +218,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a complete fake person with all identity fields populated.",
+            Description = "Generates a complete fictional person with all identity fields populated.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Person"
         )]
@@ -234,7 +234,7 @@ namespace OutSystems.Bogus
         #region Address
 
         /// <summary>
-        /// Generates a fake full address.
+        /// Generates a realistic full address.
         /// </summary>
         /// <remarks>
         /// Returns a complete address string including street number, street name, city, state, and zip code.
@@ -245,7 +245,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake full address.",
+            Description = "Generates a realistic full address.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "FullAddress"
         )]
@@ -257,7 +257,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake city name.
+        /// Returns a random city name.
         /// </summary>
         /// <remarks>
         /// City names are locale-sensitive. For example, "fr" produces French city names.
@@ -268,7 +268,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake city name.",
+            Description = "Returns a random city name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "City"
         )]
@@ -280,13 +280,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake country name.
+        /// Returns a random country name.
         /// </summary>
         /// <remarks>
         /// Returns a full country name (e.g., "United States", "Brazil").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake country name.",
+            Description = "Returns a random country name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Country"
         )]
@@ -298,13 +298,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake country code (ISO 3166-1 alpha-2).
+        /// Returns a random country code (ISO 3166-1 alpha-2).
         /// </summary>
         /// <remarks>
         /// Returns an ISO 3166-1 alpha-2 code (e.g., "US", "BR", "DE").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake country code (ISO 3166-1 alpha-2).",
+            Description = "Returns a random country code (ISO 3166-1 alpha-2).",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "CountryCode"
         )]
@@ -334,13 +334,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake state/province name.
+        /// Returns a random state/province name.
         /// </summary>
         /// <remarks>
         /// Returns a state, province, or region name depending on the locale.
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake state/province name.",
+            Description = "Returns a random state/province name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "State"
         )]
@@ -352,13 +352,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake street address.
+        /// Generates a realistic street address.
         /// </summary>
         /// <remarks>
         /// Returns a street address with number and street name (e.g., "123 Main Street").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake street address.",
+            Description = "Generates a realistic street address.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "StreetAddress"
         )]
@@ -370,7 +370,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake latitude value.
+        /// Generates a random latitude value.
         /// </summary>
         /// <remarks>
         /// Returns a decimal value between -90.0 and 90.0.
@@ -381,7 +381,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake latitude value between -90 and 90.",
+            Description = "Generates a random latitude value between -90 and 90.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Latitude"
         )]
@@ -391,7 +391,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake longitude value.
+        /// Generates a random longitude value.
         /// </summary>
         /// <remarks>
         /// Returns a decimal value between -180.0 and 180.0.
@@ -402,7 +402,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake longitude value between -180 and 180.",
+            Description = "Generates a random longitude value between -180 and 180.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Longitude"
         )]
@@ -416,7 +416,7 @@ namespace OutSystems.Bogus
         #region Company
 
         /// <summary>
-        /// Generates a fake company name.
+        /// Generates a realistic company name.
         /// </summary>
         /// <remarks>
         /// Generates a realistic company name using locale-appropriate patterns.
@@ -427,7 +427,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake company name.",
+            Description = "Generates a realistic company name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "CompanyName"
         )]
@@ -439,13 +439,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake company suffix (e.g., LLC, Inc).
+        /// Returns a random company suffix (e.g., LLC, Inc).
         /// </summary>
         /// <remarks>
         /// Returns a business suffix such as "LLC", "Inc", "Group", or "Ltd" depending on locale.
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake company suffix (e.g., LLC, Inc).",
+            Description = "Returns a random company suffix (e.g., LLC, Inc).",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "CompanySuffix"
         )]
@@ -457,13 +457,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake company catch phrase.
+        /// Generates a realistic company catch phrase.
         /// </summary>
         /// <remarks>
         /// Generates a corporate-style catch phrase composed of adjective, descriptor, and noun components.
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake company catch phrase.",
+            Description = "Generates a realistic company catch phrase.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "CatchPhrase"
         )]
@@ -475,13 +475,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake company BS phrase.
+        /// Generates a realistic company BS phrase.
         /// </summary>
         /// <remarks>
         /// Generates a corporate buzzword phrase (e.g., "synergize scalable platforms").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake company BS phrase.",
+            Description = "Generates a realistic company BS phrase.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Bs"
         )]
@@ -574,7 +574,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake monetary amount within the specified range.
+        /// Generates a random monetary amount within the specified range.
         /// </summary>
         /// <remarks>
         /// Returns a decimal value between min and max with the specified number of decimal places. Defaults to a range of 0-1000 with 2 decimal places.
@@ -585,7 +585,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake monetary amount within the specified range.",
+            Description = "Generates a random monetary amount within the specified range.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Amount"
         )]
@@ -603,7 +603,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake currency with name, code, and symbol.
+        /// Returns a random real currency with name, code, and symbol.
         /// </summary>
         /// <remarks>
         /// Returns a <see cref="FakeCurrencyData"/> structure containing the currency name (e.g., "US Dollar"), ISO 4217 code (e.g., "USD"), and symbol (e.g., "$").
@@ -615,7 +615,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake currency with name, code, and symbol.",
+            Description = "Returns a random real currency with name, code, and symbol.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Currency"
         )]
@@ -667,13 +667,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake IPv4 address.
+        /// Generates a random IPv4 address.
         /// </summary>
         /// <remarks>
         /// Returns a dotted-quad IPv4 address string (e.g., "192.168.1.100").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake IPv4 address.",
+            Description = "Generates a random IPv4 address.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Ip"
         )]
@@ -685,13 +685,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake IPv6 address.
+        /// Generates a random IPv6 address.
         /// </summary>
         /// <remarks>
         /// Returns a full IPv6 address string in colon-separated hexadecimal notation.
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake IPv6 address.",
+            Description = "Generates a random IPv6 address.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Ipv6"
         )]
@@ -703,13 +703,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake MAC address.
+        /// Generates a random MAC address.
         /// </summary>
         /// <remarks>
         /// Returns a colon-separated MAC address string (e.g., "00:1A:2B:3C:4D:5E").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake MAC address.",
+            Description = "Generates a random MAC address.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "MacAddress"
         )]
@@ -746,13 +746,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake hex color code.
+        /// Generates a random hex color code.
         /// </summary>
         /// <remarks>
         /// Returns a 6-character hex color string prefixed with # (e.g., "#a1b2c3").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake hex color code (e.g., #a1b2c3).",
+            Description = "Generates a random hex color code (e.g., #a1b2c3).",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Color"
         )]
@@ -764,13 +764,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake user agent string.
+        /// Generates a realistic user agent string.
         /// </summary>
         /// <remarks>
         /// Returns a browser user agent string resembling real browser identifiers (Chrome, Firefox, Safari, etc.).
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake user agent string.",
+            Description = "Generates a realistic user agent string.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "UserAgent"
         )]
@@ -916,13 +916,13 @@ namespace OutSystems.Bogus
         #region Commerce
 
         /// <summary>
-        /// Generates a fake product name.
+        /// Generates a realistic product name.
         /// </summary>
         /// <remarks>
         /// Generates a product name composed of adjective, material, and product components (e.g., "Refined Steel Keyboard").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake product name.",
+            Description = "Generates a realistic product name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "ProductName"
         )]
@@ -934,7 +934,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake product price as a formatted string.
+        /// Generates a random product price as a formatted string.
         /// </summary>
         /// <remarks>
         /// Returns a price as a formatted string with two decimal places (e.g., "49.99"). The value falls between min and max.
@@ -945,7 +945,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake product price as a formatted string.",
+            Description = "Generates a random product price as a formatted string.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "ProductPrice"
         )]
@@ -961,13 +961,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake department name.
+        /// Returns a random department name.
         /// </summary>
         /// <remarks>
         /// Returns a retail department name (e.g., "Electronics", "Clothing", "Sports").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake department name.",
+            Description = "Returns a random department name.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Department"
         )]
@@ -979,13 +979,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake product category.
+        /// Returns a random product category.
         /// </summary>
         /// <remarks>
         /// Returns a product category within retail departments.
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake product category.",
+            Description = "Returns a random product category.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Category"
         )]
@@ -1037,7 +1037,7 @@ namespace OutSystems.Bogus
         #region Date
 
         /// <summary>
-        /// Generates a fake date in the past.
+        /// Generates a random date in the past.
         /// </summary>
         /// <remarks>
         /// Generates a date between now and N years ago. Use this for dates in the distant past. For dates within the last few days, use <see cref="FakeRecentDate"/> instead.
@@ -1048,7 +1048,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake date in the past.",
+            Description = "Generates a random date in the past.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "PastDate"
         )]
@@ -1062,7 +1062,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake date in the future.
+        /// Generates a random date in the future.
         /// </summary>
         /// <remarks>
         /// Generates a date between now and N years from now. Use this for dates in the distant future. For dates within the next few days, use <see cref="FakeSoonDate"/> instead.
@@ -1073,7 +1073,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake date in the future.",
+            Description = "Generates a random date in the future.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "FutureDate"
         )]
@@ -1087,7 +1087,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake date between two dates.
+        /// Generates a random date between two dates.
         /// </summary>
         /// <remarks>
         /// Both start and end dates are inclusive. If start equals end, that exact date is returned. The start date must not be after the end date.
@@ -1102,7 +1102,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake date between the specified start and end dates.",
+            Description = "Generates a random date between the specified start and end dates.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "DateBetween"
         )]
@@ -1118,7 +1118,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake recent date within the specified number of days.
+        /// Generates a random recent date within the specified number of days.
         /// </summary>
         /// <remarks>
         /// Generates a date within the last N days from now. For example, days=7 returns a date from the past week. For longer time spans, use <see cref="FakePastDate"/> instead.
@@ -1129,7 +1129,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake recent date within the specified number of days in the past.",
+            Description = "Generates a random recent date within the specified number of days in the past.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "RecentDate"
         )]
@@ -1143,7 +1143,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake soon date within the specified number of days.
+        /// Generates a random upcoming date within the specified number of days.
         /// </summary>
         /// <remarks>
         /// Generates a date within the next N days from now. For example, days=7 returns a date in the next week. For longer time spans, use <see cref="FakeFutureDate"/> instead.
@@ -1154,7 +1154,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake soon date within the specified number of days in the future.",
+            Description = "Generates a random upcoming date within the specified number of days in the future.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "SoonDate"
         )]
@@ -1172,7 +1172,7 @@ namespace OutSystems.Bogus
         #region System
 
         /// <summary>
-        /// Generates a fake file name with extension.
+        /// Generates a realistic file name with extension.
         /// </summary>
         /// <remarks>
         /// Returns a file name with a realistic extension (e.g., "report.pdf", "image.jpg").
@@ -1183,7 +1183,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake file name with extension.",
+            Description = "Generates a realistic file name with extension.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "FileName"
         )]
@@ -1195,13 +1195,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake MIME type.
+        /// Returns a random MIME type.
         /// </summary>
         /// <remarks>
         /// Returns a MIME type string in type/subtype format (e.g., "application/json", "image/png").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake MIME type (e.g., application/json).",
+            Description = "Returns a random MIME type (e.g., application/json).",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "MimeType"
         )]
@@ -1213,13 +1213,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake file extension.
+        /// Returns a random file extension.
         /// </summary>
         /// <remarks>
         /// Returns a file extension without the leading dot (e.g., "pdf", "jpg", "csv").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake file extension (e.g., pdf, jpg).",
+            Description = "Returns a random file extension (e.g., pdf, jpg).",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "FileExtension"
         )]
@@ -1231,13 +1231,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake semantic version string.
+        /// Generates a random semantic version string.
         /// </summary>
         /// <remarks>
         /// Returns a semantic version string in major.minor.patch format (e.g., "1.2.3").
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake semantic version string (e.g., 1.2.3).",
+            Description = "Generates a random semantic version string (e.g., 1.2.3).",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Semver"
         )]
@@ -1253,7 +1253,7 @@ namespace OutSystems.Bogus
         #region Randomizer
 
         /// <summary>
-        /// Generates a fake GUID string.
+        /// Generates a random GUID string.
         /// </summary>
         /// <remarks>
         /// Returns a GUID string in the standard 8-4-4-4-12 format (e.g., "550e8400-e29b-41d4-a716-446655440000").
@@ -1264,7 +1264,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake GUID string.",
+            Description = "Generates a random GUID string.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Guid"
         )]
@@ -1274,7 +1274,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake integer within the specified range.
+        /// Generates a random integer within the specified range.
         /// </summary>
         /// <remarks>
         /// Both min and max are inclusive. Defaults to range 0-100.
@@ -1285,7 +1285,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake integer within the specified range.",
+            Description = "Generates a random integer within the specified range.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Number"
         )]
@@ -1299,13 +1299,13 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake decimal within the specified range.
+        /// Generates a random decimal within the specified range.
         /// </summary>
         /// <remarks>
         /// Both min and max are inclusive. Defaults to range 0-100.
         /// </remarks>
         [OSAction(
-            Description = "Generates a fake decimal within the specified range.",
+            Description = "Generates a random decimal within the specified range.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Value"
         )]
@@ -1319,7 +1319,7 @@ namespace OutSystems.Bogus
         );
 
         /// <summary>
-        /// Generates a fake boolean with configurable probability.
+        /// Generates a random boolean with configurable probability.
         /// </summary>
         /// <remarks>
         /// The weight parameter controls the probability of returning true (0.0 = always false, 1.0 = always true, 0.5 = equal chance). Default is 0.5.
@@ -1331,7 +1331,7 @@ namespace OutSystems.Bogus
         /// </code>
         /// </example>
         [OSAction(
-            Description = "Generates a fake boolean with configurable probability weight for true.",
+            Description = "Generates a random boolean with configurable probability weight for true.",
             IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
             ReturnName = "Value"
         )]
@@ -1374,6 +1374,240 @@ namespace OutSystems.Bogus
         string FakeAlphaNumeric(
             [OSParameterAttribute(Description = "Length of the string. Default is 10.")]
             int length = 10,
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        #endregion
+
+        #region Bulk Generation
+
+        /// <summary>
+        /// Generates a list of complete fictional persons with all identity fields populated.
+        /// </summary>
+        /// <remarks>
+        /// Each person in the list has independently generated FirstName, LastName, FullName, Email, Phone, DateOfBirth, UserName, JobTitle, and Gender. More efficient than calling GenerateFakePerson in a loop.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of complete fictional persons.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Persons"
+        )]
+        List<FakePersonData> GenerateFakePersons(
+            [OSParameterAttribute(Description = "Number of persons to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of fake email addresses.
+        /// </summary>
+        /// <remarks>
+        /// Each email in the list is independently generated. The domains may be real (e.g., gmail.com, yahoo.com).
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of fake email addresses.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Emails"
+        )]
+        List<string> FakeEmails(
+            [OSParameterAttribute(Description = "Number of emails to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of realistic full addresses.
+        /// </summary>
+        /// <remarks>
+        /// Each address includes street number, street name, city, state, and zip code.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of realistic full addresses.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Addresses"
+        )]
+        List<string> FakeFullAddresses(
+            [OSParameterAttribute(Description = "Number of addresses to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of realistic company names.
+        /// </summary>
+        /// <remarks>
+        /// Each company name is generated using locale-appropriate patterns.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of realistic company names.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "CompanyNames"
+        )]
+        List<string> FakeCompanyNames(
+            [OSParameterAttribute(Description = "Number of company names to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of random monetary amounts within the specified range.
+        /// </summary>
+        /// <remarks>
+        /// Each amount is a decimal value between min and max with the specified number of decimal places.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of random monetary amounts within the specified range.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Amounts"
+        )]
+        List<decimal> FakeAmounts(
+            [OSParameterAttribute(Description = "Number of amounts to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Minimum amount. Default is 0.")]
+            decimal min = 0,
+            [OSParameterAttribute(Description = "Maximum amount. Default is 1000.")]
+            decimal max = 1000,
+            [OSParameterAttribute(Description = "Number of decimal places. Default is 2.")]
+            int decimals = 2,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of fake URLs.
+        /// </summary>
+        /// <remarks>
+        /// Each URL has a plausible protocol, domain, and path. The domains may be real.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of fake URLs.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Urls"
+        )]
+        List<string> FakeUrls(
+            [OSParameterAttribute(Description = "Number of URLs to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of lorem ipsum sentences.
+        /// </summary>
+        /// <remarks>
+        /// Each sentence has approximately the specified word count and ends with a period.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of lorem ipsum sentences.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Sentences"
+        )]
+        List<string> FakeLoremSentences(
+            [OSParameterAttribute(Description = "Number of sentences to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Approximate number of words per sentence. Default is 6.")]
+            int wordCount = 6,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of realistic product names.
+        /// </summary>
+        /// <remarks>
+        /// Each product name is composed of adjective, material, and product components.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of realistic product names.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "ProductNames"
+        )]
+        List<string> FakeProductNames(
+            [OSParameterAttribute(Description = "Number of product names to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of random dates in the past.
+        /// </summary>
+        /// <remarks>
+        /// Each date falls between now and N years ago.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of random dates in the past.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "PastDates"
+        )]
+        List<DateTime> FakePastDates(
+            [OSParameterAttribute(Description = "Number of dates to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Number of years to go back. Default is 1.")]
+            int yearsToGoBack = 1,
+            [OSParameterAttribute(Description = "Locale code (e.g., 'en', 'pt_BR'). Default is 'en'.")]
+            string locale = "en",
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of random integers within the specified range.
+        /// </summary>
+        /// <remarks>
+        /// Both min and max are inclusive. Defaults to range 0-100.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of random integers within the specified range.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Numbers"
+        )]
+        List<int> FakeNumbers(
+            [OSParameterAttribute(Description = "Number of integers to generate. Default is 10.")]
+            int count = 10,
+            [OSParameterAttribute(Description = "Minimum value (inclusive). Default is 0.")]
+            int min = 0,
+            [OSParameterAttribute(Description = "Maximum value (inclusive). Default is 100.")]
+            int max = 100,
+            [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
+            int seed = 0
+        );
+
+        /// <summary>
+        /// Generates a list of random GUID strings.
+        /// </summary>
+        /// <remarks>
+        /// Each GUID is in the standard 8-4-4-4-12 format.
+        /// </remarks>
+        [OSAction(
+            Description = "Generates a list of random GUID strings.",
+            IconResourceName = "OutSystems.Bogus.resources.Bogus_icon.png",
+            ReturnName = "Guids"
+        )]
+        List<string> FakeGuids(
+            [OSParameterAttribute(Description = "Number of GUIDs to generate. Default is 10.")]
+            int count = 10,
             [OSParameterAttribute(Description = "Seed for reproducibility. 0 means random.")]
             int seed = 0
         );

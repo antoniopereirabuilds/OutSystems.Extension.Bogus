@@ -9,6 +9,7 @@ namespace OutSystems.Bogus
     {
         private const int MaxCount = 10_000;
         private const int MaxLength = 100_000;
+        private const int MaxWordCount = 1_000;
 
         /// <summary>
         /// Creates a Bogus Faker instance configured with the given locale and seed.
@@ -73,6 +74,27 @@ namespace OutSystems.Bogus
         {
             if (value < 1)
                 throw new ArgumentOutOfRangeException(paramName, value, $"{paramName} must be at least 1.");
+        }
+
+        /// <summary>
+        /// Validates that a word count parameter is within a safe range.
+        /// </summary>
+        internal static int ValidateWordCount(int wordCount, string paramName)
+        {
+            if (wordCount < 1)
+                throw new ArgumentOutOfRangeException(paramName, wordCount, $"{paramName} must be at least 1.");
+            if (wordCount > MaxWordCount)
+                throw new ArgumentOutOfRangeException(paramName, wordCount, $"{paramName} must not exceed {MaxWordCount}.");
+            return wordCount;
+        }
+
+        /// <summary>
+        /// Validates that a decimals parameter is within 0-10.
+        /// </summary>
+        internal static void ValidateDecimals(int decimals, string paramName)
+        {
+            if (decimals < 0 || decimals > 10)
+                throw new ArgumentOutOfRangeException(paramName, decimals, $"{paramName} must be between 0 and 10.");
         }
     }
 }

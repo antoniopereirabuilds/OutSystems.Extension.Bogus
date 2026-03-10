@@ -1,6 +1,6 @@
 # OutSystems.Extension.Bogus
 
-> An OutSystems Developer Cloud (ODC) external library for generating realistic fake/test data. Wraps the .NET Bogus library and exposes 60+ server actions for ODC applications.
+> An OutSystems Developer Cloud (ODC) external library for generating realistic fake/test data. Wraps the .NET Bogus library and exposes 74 server actions for ODC applications, including 11 bulk generation actions.
 
 ## What this project does
 
@@ -8,11 +8,13 @@ This library lets OutSystems Developer Cloud (ODC) applications generate fake da
 
 ## Key features
 
-- 63 server actions in a single unified interface (IFakeBogus / FakeBogus), organized into 10 regions: Person, Address, Company, Finance, Internet, Text, Commerce, Date, System, Randomizer
+- 74 server actions in a single unified interface (IFakeBogus / FakeBogus), organized into 11 regions: Person, Address, Company, Finance, Internet, Text, Commerce, Date, System, Randomizer, and Bulk Generation
+- 63 single-value actions + 11 bulk generation actions returning List<T>
 - Locale support: 50+ locales (en, pt_BR, fr, de, ja, zh_CN, es, etc.)
 - Deterministic output: set seed > 0 for reproducible results; seed = 0 for random
 - Two data structures: FakePersonData (9 fields) and FakeCurrencyData (3 fields)
-- Batch generation: GenerateFakePerson returns a complete person in one call
+- Bulk generation: GenerateFakePersons, FakeEmails, FakeAmounts, etc. generate up to 10,000 records in a single call
+- Input validation: count (1–10,000), wordCount (1–1,000), length (1–100,000), decimals (0–10), range checks
 
 ## Technical stack
 
@@ -25,13 +27,13 @@ This library lets OutSystems Developer Cloud (ODC) applications generate fake da
 
 ## Project structure
 
-- OutSystems.Bogus/ — Main library (1 interface IFakeBogus, 1 implementation FakeBogus with 63 methods in 10 regions, 2 data structures, 1 helper)
-- OutSystems.Bogus.UnitTests/ — Unit tests (10 test classes, one per region)
+- OutSystems.Bogus/ — Main library (1 interface IFakeBogus, 1 implementation FakeBogus with 74 methods in 11 regions, 2 data structures, 1 helper)
+- OutSystems.Bogus.UnitTests/ — Unit tests (11 test classes, one per region + bulk tests)
 - .github/workflows/ — CI (test.yml) and release (release.yml) pipelines
 
 ## Interface structure
 
-Single unified interface: IFakeBogus (OSInterface Name = "Bogus") with 63 methods in 10 #region blocks:
+Single unified interface: IFakeBogus (OSInterface Name = "Bogus") with 74 methods in 11 #region blocks:
 
 - Person region: 9 actions (names, email, phone, DOB, job title, full person)
 - Address region: 9 actions (address, city, country, zip, state, street, lat/long)
@@ -43,6 +45,7 @@ Single unified interface: IFakeBogus (OSInterface Name = "Bogus") with 63 method
 - Date region: 5 actions (past, future, between, recent, soon)
 - System region: 4 actions (file name, MIME type, extension, semver)
 - Randomizer region: 6 actions (GUID, number, decimal, boolean, hash, alphanumeric)
+- Bulk Generation region: 11 actions (persons, emails, addresses, companies, amounts, URLs, sentences, products, past dates, numbers, GUIDs)
 
 Note: ODC allows only 1 OSInterface per DLL, hence the consolidation into a single interface.
 

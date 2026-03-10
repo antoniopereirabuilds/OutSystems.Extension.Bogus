@@ -197,6 +197,7 @@ namespace OutSystems.Bogus
         public decimal FakeAmount(decimal min = 0, decimal max = 1000, int decimals = 2, string locale = "en", int seed = 0)
         {
             FakerHelper.ValidateRange(min, max, nameof(min), nameof(max));
+            FakerHelper.ValidateDecimals(decimals, nameof(decimals));
             var faker = FakerHelper.CreateFaker(locale, seed);
             return faker.Finance.Amount(min, max, decimals);
         }
@@ -285,7 +286,7 @@ namespace OutSystems.Bogus
 
         public string FakeLoremSentence(int wordCount = 6, string locale = "en", int seed = 0)
         {
-            FakerHelper.ValidateCount(wordCount, nameof(wordCount));
+            FakerHelper.ValidateWordCount(wordCount, nameof(wordCount));
             var faker = FakerHelper.CreateFaker(locale, seed);
             return faker.Lorem.Sentence(wordCount);
         }
@@ -305,7 +306,7 @@ namespace OutSystems.Bogus
 
         public string FakeLoremSlug(int wordCount = 3, string locale = "en", int seed = 0)
         {
-            FakerHelper.ValidateCount(wordCount, nameof(wordCount));
+            FakerHelper.ValidateWordCount(wordCount, nameof(wordCount));
             var faker = FakerHelper.CreateFaker(locale, seed);
             return faker.Lorem.Slug(wordCount);
         }
@@ -463,6 +464,107 @@ namespace OutSystems.Bogus
             FakerHelper.ValidateLength(length, nameof(length));
             var randomizer = FakerHelper.CreateRandomizer(seed);
             return randomizer.AlphaNumeric(length);
+        }
+
+        #endregion
+
+        #region Bulk Generation
+
+        public List<FakePersonData> GenerateFakePersons(int count = 10, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            return Enumerable.Range(0, count).Select(i =>
+            {
+                var faker = FakerHelper.CreateFaker(locale, seed > 0 ? seed + i : 0);
+                var person = faker.Person;
+                return new FakePersonData
+                {
+                    FirstName = person.FirstName,
+                    LastName = person.LastName,
+                    FullName = person.FullName,
+                    Email = person.Email,
+                    Phone = person.Phone,
+                    DateOfBirth = person.DateOfBirth,
+                    UserName = person.UserName,
+                    JobTitle = faker.Name.JobTitle(),
+                    Gender = person.Gender.ToString()
+                };
+            }).ToList();
+        }
+
+        public List<string> FakeEmails(int count = 10, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Internet.Email()).ToList();
+        }
+
+        public List<string> FakeFullAddresses(int count = 10, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Address.FullAddress()).ToList();
+        }
+
+        public List<string> FakeCompanyNames(int count = 10, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Company.CompanyName()).ToList();
+        }
+
+        public List<decimal> FakeAmounts(int count = 10, decimal min = 0, decimal max = 1000, int decimals = 2, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            FakerHelper.ValidateRange(min, max, nameof(min), nameof(max));
+            FakerHelper.ValidateDecimals(decimals, nameof(decimals));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Finance.Amount(min, max, decimals)).ToList();
+        }
+
+        public List<string> FakeUrls(int count = 10, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Internet.Url()).ToList();
+        }
+
+        public List<string> FakeLoremSentences(int count = 10, int wordCount = 6, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            FakerHelper.ValidateWordCount(wordCount, nameof(wordCount));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Lorem.Sentence(wordCount)).ToList();
+        }
+
+        public List<string> FakeProductNames(int count = 10, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Commerce.ProductName()).ToList();
+        }
+
+        public List<DateTime> FakePastDates(int count = 10, int yearsToGoBack = 1, string locale = "en", int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            FakerHelper.ValidatePositive(yearsToGoBack, nameof(yearsToGoBack));
+            var faker = FakerHelper.CreateFaker(locale, seed);
+            return Enumerable.Range(0, count).Select(_ => faker.Date.Past(yearsToGoBack)).ToList();
+        }
+
+        public List<int> FakeNumbers(int count = 10, int min = 0, int max = 100, int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            FakerHelper.ValidateRange(min, max, nameof(min), nameof(max));
+            var randomizer = FakerHelper.CreateRandomizer(seed);
+            return Enumerable.Range(0, count).Select(_ => randomizer.Number(min, max)).ToList();
+        }
+
+        public List<string> FakeGuids(int count = 10, int seed = 0)
+        {
+            FakerHelper.ValidateCount(count, nameof(count));
+            var randomizer = FakerHelper.CreateRandomizer(seed);
+            return Enumerable.Range(0, count).Select(_ => randomizer.Guid().ToString()).ToList();
         }
 
         #endregion
